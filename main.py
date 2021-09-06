@@ -25,7 +25,7 @@ def sangers(X, learning_rate = 0.1, iters = 100, features = 2):
     W = np.copy(w)
     for i in range(1,50):
         y = np.dot(X,w.T)
-        delta_w = learning_rate*(np.dot(y,X) - np.dot(np.tril(np.dot(y,y.T)),w))
+        delta_w = learning_rate*(np.multiply(y,X) - np.dot(np.tril(np.outer(y,y.T)),w))
         w = w + np.sum(delta_w)
     return w
 #TEST OJAS Rule
